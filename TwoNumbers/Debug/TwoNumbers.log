@@ -1,3 +1,2 @@
-﻿  CommandLine.cpp
-d:\cpp projects\twonumbers\twonumbers\commandline.cpp(25): warning C4018: >=: несоответствие типов со знаком и без знака
-  TwoNumbers.vcxproj -> D:\cpp projects\TwoNumbers\Debug\TwoNumbers.exe
+﻿  TwoNumbers.cpp
+  TwoNumbers.vcxproj -> D:\cpp projects\TwoNumbers\Debug\TwoNumbers.lib
