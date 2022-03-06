@@ -1,6 +1,7 @@
 ﻿#include "CommandLine.h"
 
 #include "SimpleNet.h"
+#include "Game.h"
 
 PackageSender sender("127.0.0.1", 26999);
 
@@ -16,8 +17,8 @@ void Set(CommandLine& console, const vector<string>& args)
 
 void Create(const CommandLine& console, const vector<string>& args)
 {
-	auto package = Package();
-	auto respond = Package();
+	Package package;
+	Package respond;
 	package.Add8(0);
 	package.AddStr(args[1].c_str(), args[1].length() + 1);
 	sender.Send(package, respond);
@@ -31,22 +32,53 @@ void Connect(const CommandLine& console, const vector<string>& args)
 
 void DisplayList(const CommandLine& console, const vector<string>& args)
 {
-	auto package = Package();
+	Package package;
 	package.Add8(1);
-	auto respond = Package();
+	Package respond;
 	sender.Send(package, respond);
 	uint8 count = respond.Read8();
 	for (int i = 0; i < count; i++)
 		cout << respond.ReadStr() << endl;
 }
 
-int main(int argc, char **argv)
+void Test(const CommandLine& console, const vector<string>& args)
+{
+	Room tr("<Test room>", 200, "Wolf", "Fox");
+	tr.Draw();
+	cout << "(s)>>>";
+	unsigned short s = time(NULL);
+	int winner;
+	while (true)
+	{
+		srand(s);
+		s = rand();
+		string input;
+		getline(cin, input);
+		short a = Parse(input, rand() % MAX_NUMBER);
+		short b = rand() % MAX_NUMBER;
+		cout << "(a:" << a << "; b:" << b << ")" << endl;
+		winner = tr.Update(a, b, rand(), rand());
+		getline(cin, input);
+		system("cls");
+		if (winner != 0)
+			break;
+		tr.Draw();
+		cout << "(a)>>>";
+	}
+	if (winner == 3)
+		cout << "DRAW!" << endl;
+	else
+		cout << "P" << winner << " won!" << endl;
+}
+
+int main()
 {
 	CommandLine cmd;
 	cmd.AddCommand(Command("help", Help, 0));
 	cmd.AddCommand(Command("set", Set, 2));
-	cmd.AddCommand(Command("create", Create, 2));
-	cmd.AddCommand(Command("connect", Connect, 1));
-	cmd.AddCommand(Command("list", DisplayList, 0));
+	/*cmd.AddCommand(Command("create", Create, 2));
+	cmd.AddCommand(Command("name", Connect, 1));
+	cmd.AddCommand(Command("server", Connect, 1));*/
+	cmd.AddCommand(Command("test", Test, 0));
 	cmd.Run();
 }

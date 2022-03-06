@@ -75,6 +75,8 @@ void CommandLine::Run()
 	{
 		getline(cin, input);
 		auto words = Split(input, ' ');
+		if (words.size() == 0)
+			continue;
 		for (auto& w : words) 
 		{
 			if (w[0] == '@')

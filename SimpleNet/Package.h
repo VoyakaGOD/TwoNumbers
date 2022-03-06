@@ -22,4 +22,8 @@ struct Package
 	void AddStr(const char *str, int len);
 	char* ReadStr();
 	void Reset();
+
+private:
+	Package(const Package& obj);
+	void operator=(const Package& obj);
 };
