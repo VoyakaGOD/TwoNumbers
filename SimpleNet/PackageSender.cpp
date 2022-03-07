@@ -20,6 +20,7 @@ PackageSender::~PackageSender()
 
 void PackageSender::Send(Package &msg, Package &respond)
 {
+	respond.Reset();
 	sendto(_socket, (char*)msg.Data, msg.Pos, 0, (SOCKADDR*)&_info, _infoSize);
 	recvfrom(_socket, (char*)respond.Data, PACKAGE_SIZE, 0, (SOCKADDR*)&_info, &_infoSize);
 }

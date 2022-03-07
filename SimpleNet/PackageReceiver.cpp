@@ -22,6 +22,7 @@ PackageReceiver::~PackageReceiver()
 
 void PackageReceiver::Receive(Package &result)
 {
+	result.Reset();
 	recvfrom(_socket, (char*)result.Data, PACKAGE_SIZE, 0, (SOCKADDR*)&_info, &_infoSize);
 }
 

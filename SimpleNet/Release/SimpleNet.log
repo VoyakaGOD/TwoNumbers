@@ -1,0 +1,6 @@
+﻿  Package.cpp
+d:\cpp projects\twonumbers\simplenet\package.cpp(31): warning C4244: =: преобразование "uint32" в "uint8", возможна потеря данных
+  PackageReceiver.cpp
+  PackageSender.cpp
+  Utils.cpp
+  SimpleNet.vcxproj -> D:\cpp projects\TwoNumbers\Release\SimpleNet.lib

@@ -1,2 +1,9 @@
-﻿  TwoNumbers.cpp
-  TwoNumbers.vcxproj -> D:\cpp projects\TwoNumbers\Debug\TwoNumbers.lib
+﻿  CommandLine.cpp
+d:\cpp projects\twonumbers\twonumbers\commandline.cpp(25): warning C4018: >=: несоответствие типов со знаком и без знака
+  Game.cpp
+d:\cpp projects\twonumbers\twonumbers\game.cpp(147): warning C4018: <: несоответствие типов со знаком и без знака
+  main.cpp
+d:\cpp projects\twonumbers\simplenet\package.cpp(31): warning C4244: =: преобразование "uint32" в "uint8", возможна потеря данных
+d:\cpp projects\twonumbers\twonumbers\main.cpp(46): warning C4244: инициализация: преобразование "time_t" в "unsigned short", возможна потеря данных
+  Создание кода...
+  TwoNumbers.vcxproj -> D:\cpp projects\TwoNumbers\Debug\TwoNumbers.exe
